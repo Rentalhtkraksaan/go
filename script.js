@@ -39,7 +39,8 @@ body{
               linear-gradient(180deg,var(--bg1),var(--bg2));
   color:#e6f0ff;
   -webkit-font-smoothing:antialiased;
-  overflow:hidden;
+  overflow-y:auto;   /* ✅ biar bisa scroll di HP */
+  overflow-x:hidden; /* ✅ cegah geser samping */
 }
 .app-root{width:100%; max-width:980px; display:grid; grid-template-columns: 1fr 380px; gap:28px; align-items:center;}
 @media (max-width:880px){ .app-root{grid-template-columns:1fr; padding:0 8px;} }
@@ -99,6 +100,12 @@ body{
 .r3{width:180px;height:180px; left:140px; top:160px}
 `;
 document.head.appendChild(style);
+
+/* ================== PRELOAD IMG ================== */
+['logocwu.jpg','cwugrup.png'].forEach(src=>{
+  const img = new Image();
+  img.src = src;
+});
 
 /* ================== BUILD MARKUP ================== */
 const root = document.getElementById('app') || (function(){ 
@@ -203,11 +210,10 @@ function makeLinkCard(key, appName, handle){
   btn.type = 'button';
   btn.dataset.linkKey = key;
 
-  // Semua tombol tanpa panah
   if(key === 'whatsapp'){
-    btn.textContent = 'Ikuti';   // untuk saluran WhatsApp
+    btn.textContent = 'Ikuti';
   } else {
-    btn.textContent = 'Pergi';   // untuk IG & TikTok
+    btn.textContent = 'Pergi';
   }
 
   btn.addEventListener('click', ()=> {
