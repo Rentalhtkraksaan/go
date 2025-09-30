@@ -20,7 +20,6 @@ const dataHandles = {
 const style = document.createElement('style');
 style.textContent = `
 :root{
-  --bg1:#071029; --bg2:#041428;
   --accent:#6ee7b7; --accent-2:#7dd3fc;
   --glass: rgba(255,255,255,0.02);
   --glass-border: rgba(255,255,255,0.08);
@@ -35,8 +34,7 @@ body{
   align-items:center;
   justify-content:center;
   padding:28px;
-  background: radial-gradient(1000px 400px at 10% 10%, rgba(125,211,252,0.08), transparent),
-              linear-gradient(180deg,var(--bg1),var(--bg2));
+  background: #071229;   /* ✅ NAVY FULL */
   color:#e6f0ff;
   -webkit-font-smoothing:antialiased;
   overflow-y:auto;   /* ✅ biar bisa scroll di HP */
@@ -55,13 +53,14 @@ body{
   display:grid;
   grid-template-columns: 1fr 380px;
   gap:28px;
-  align-items:start; /* ✅ biar nggak ketutup di HP */
+  align-items:start;
   margin:auto;
 }
 @media (max-width:880px){
   .app-root{
     grid-template-columns:1fr;
     padding:0 8px;
+    justify-items:center; /* ✅ center konten di HP */
   }
 }
 
@@ -77,40 +76,20 @@ body{
 .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px;border:1px solid rgba(255,255,255,0.03)}
 .hero .title{font-size:28px;line-height:1.05;margin:6px 0 6px;font-weight:700}
 .hero .sub{margin:0 0 14px 0; opacity:0.8;font-size:14px}
-.preview{
-  display:flex; flex-direction:column; align-items:center; gap:12px; margin-bottom:12px;
-}
-.logo-img{
-  width:120px; height:120px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,0.12);
-  box-shadow: 0 8px 18px rgba(2,6,23,0.5);
-}
+.preview{display:flex; flex-direction:column; align-items:center; gap:12px; margin-bottom:12px;}
+.logo-img{width:120px; height:120px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,0.12); box-shadow: 0 8px 18px rgba(2,6,23,0.5);}
 .title-main{font-size:18px;font-weight:700; margin-top:6px}
 .title-sub{font-size:15px; opacity:0.9}
 .banner-img{width:100%; border-radius:12px; max-height:220px; object-fit:cover; box-shadow:0 8px 24px rgba(2,6,23,0.55)}
-.links{
-  padding:18px; border-radius:var(--radius);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border:1px solid var(--glass-border);
-  backdrop-filter: blur(10px) saturate(120%);
-  min-height:220px; display:flex; flex-direction:column; gap:12px;
-}
-.link-card{
-  display:flex; align-items:center; gap:14px; padding:12px; border-radius:12px;
-  border:1px solid rgba(255,255,255,0.04); background: var(--glass);
-  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-}
+.links{padding:18px; border-radius:var(--radius); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid var(--glass-border); backdrop-filter: blur(10px) saturate(120%); min-height:220px; display:flex; flex-direction:column; gap:12px;}
+.link-card{display:flex; align-items:center; gap:14px; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.04); background: var(--glass); transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;}
 .link-card:hover{ transform:translateY(-6px); box-shadow: 0 12px 30px rgba(2,6,23,0.6); border-color: rgba(125,211,252,0.12) }
 .logo-wrap{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
 .logo-wrap img{width:36px;height:36px;object-fit:contain;border-radius:8px}
 .meta{flex:1; min-width:0}
 .meta .name{font-weight:700}
 .meta .handle{font-size:13px; opacity:0.75}
-.btn{
-  padding:10px 14px; border-radius:10px; border:none; cursor:pointer;
-  background: linear-gradient(90deg,var(--accent),var(--accent-2));
-  color:#022; font-weight:800; display:inline-flex; align-items:center; gap:8px;
-  box-shadow:0 6px 18px rgba(125,211,252,0.12);
-}
+.btn{padding:10px 14px; border-radius:10px; border:none; cursor:pointer; background: linear-gradient(90deg,var(--accent),var(--accent-2)); color:#022; font-weight:800; display:inline-flex; align-items:center; gap:8px; box-shadow:0 6px 18px rgba(125,211,252,0.12);}
 .btn:active{transform:translateY(2px)}
 .btn:focus{outline:none}
 .small-note{font-size:13px; opacity:0.75; margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:8px}
