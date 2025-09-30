@@ -31,7 +31,7 @@ style.textContent = `
 html,body{height:100%; margin:0;}
 body{
   min-height:100vh;
-  display:block;
+  display:flex;
   align-items:center;
   justify-content:center;
   padding:28px;
@@ -42,8 +42,29 @@ body{
   overflow-y:auto;   /* ✅ biar bisa scroll di HP */
   overflow-x:hidden; /* ✅ cegah geser samping */
 }
-.app-root{width:100%; max-width:980px; display:grid; grid-template-columns: 1fr 380px; gap:28px; align-items:center;}
-@media (max-width:880px){ .app-root{grid-template-columns:1fr; padding:0 8px;} }
+
+#app{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+.app-root{
+  width:100%;
+  max-width:980px;
+  display:grid;
+  grid-template-columns: 1fr 380px;
+  gap:28px;
+  align-items:start; /* ✅ biar nggak ketutup di HP */
+  margin:auto;
+}
+@media (max-width:880px){
+  .app-root{
+    grid-template-columns:1fr;
+    padding:0 8px;
+  }
+}
+
 .hero{
   padding:24px; border-radius:var(--radius);
   background: linear-gradient(135deg, rgba(125,211,252,0.03), rgba(110,231,183,0.02));
@@ -246,4 +267,3 @@ document.addEventListener('keydown', (e)=>{
 });
 logoImg.addEventListener('error', ()=>{ logoImg.style.display = 'none'; });
 grupImg.addEventListener('error', ()=>{ grupImg.style.display = 'none'; });
-
