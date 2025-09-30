@@ -31,7 +31,7 @@ style.textContent = `
 html,body{height:100%; margin:0;}
 body{
   min-height:100vh;
-  display:flex;
+  display:block;
   align-items:center;
   justify-content:center;
   padding:28px;
@@ -246,3 +246,4 @@ document.addEventListener('keydown', (e)=>{
 });
 logoImg.addEventListener('error', ()=>{ logoImg.style.display = 'none'; });
 grupImg.addEventListener('error', ()=>{ grupImg.style.display = 'none'; });
+
